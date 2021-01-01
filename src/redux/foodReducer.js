@@ -48,9 +48,10 @@ export const foodSlice = createSlice({
 
       return void (state[myIndex].weight = action.payload.weight);
     },
-    editWater: (state, action) => void (state[action.payload.indexAC].water = action.payload.water),
+    editWater: (state, action) =>
+      void (state[action.payload.indexAC].water = action.payload.amount),
     editCoffeCup: (state, action) =>
-      void (state[action.payload.index].coffeCup = action.payload.cups),
+      void (state[action.payload.indexAC].coffeCup = action.payload.amount),
     addEat: (state, action) => state.eats.push(action.payload),
 
     createNewDay: (state, action) => void state.push({ ...fake_day, date: action.payload }),

@@ -10,7 +10,7 @@ export const CupsAmounter = (props) => {
     dispatch(
       actionCreator({
         indexAC,
-        water: e.target.value,
+        amount: e.target.value,
       })
     );
   };
