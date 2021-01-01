@@ -38,6 +38,9 @@ export function EditDayInputs(props) {
       // payload for ED1IT WEIGHT
     );
   const handleChangeTextFirstFood = (e) => setArrayAte({ ...arrayAte, 1: e.target.value });
+  const handleChangeTextSecondFood = (e) => setArrayAte({ ...arrayAte, 2: e.target.value });
+  const handleChangeTextThirdFood = (e) => setArrayAte({ ...arrayAte, 3: e.target.value });
+  const handleChangeTextFourFood = (e) => setArrayAte({ ...arrayAte, 4: e.target.value });
 
   // for renders
   const wightForm = (
@@ -78,12 +81,30 @@ export function EditDayInputs(props) {
       {wightForm}
       {waterForm}
       {coffeForm}
-      <fieldset className='food_form__ate'>
-        <div className='food_form__ate__second'>
-          <input type='time' onChange={(e) => console.log(e.target.value)} />
-          <textarea name='second-ate' onChange={handleChangeTextFirstFood} />
-        </div>
-      </fieldset>
+      <div>
+        <fieldset className='food_form__ate'>
+          <div className='food_form__ate__first'>
+            <input
+              type='time'
+              name='time-first-ate'
+              onChange={(e) => console.log(e.target.value)}
+            />
+            <textarea name='first-ate' onChange={handleChangeTextFirstFood} />
+          </div>
+          <div className='food_form__ate_second'>
+            <input type='time' name='time-second-ate' />
+            <textarea name='food-second-ate' onChange={handleChangeTextSecondFood} />
+          </div>
+          <div className='food_form__ate_third'>
+            <input type='time' name='time-third-ate' />
+            <textarea name='food-third-ate' />
+          </div>
+          <div className='food_form__ate_four'>
+            <input type='time' name='time-four-ate' />
+            <textarea name='food-four-ate' />
+          </div>
+        </fieldset>
+      </div>
     </div>
   );
 }
