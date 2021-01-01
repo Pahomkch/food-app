@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createNewDay, editWeight } from '../../redux/foodReducer';
 import { EditDayInputs } from './EditDayInputs';
 
+const _checkDateHaveTwoDigits = (arrStr) => arrStr.map((d) => (d.length > 1 ? d : '0' + d));
+
 const _searchDateWhichEdit = (days, dateYMD) => {
   const [editDayYear, editDayMonth, editDayDay] = dateYMD.split('-');
   const formatDateFromState = `${editDayDay}.${editDayMonth}.${editDayYear}`;
@@ -12,20 +14,19 @@ const _searchDateWhichEdit = (days, dateYMD) => {
 const FoodForm = () => {
   const dispatch = useDispatch();
   const daysFood = useSelector((state) => state.daysFood);
-  const [nowMonth, nowDate, nowYear] = new Date().toLocaleDateString('en-US').split('/');
+  const [nowMonth, nowDate, nowYear] = _checkDateHaveTwoDigits(
+    new Date().toLocaleDateString('en-US').split('/')
+  );
+
+  console.log(`Year: ${nowYear} / Month: ${nowMonth} / Day: ${nowDate}`);
   const [editDayData, setEditDayData] = useState(`${nowYear}-${nowMonth}-${nowDate}`);
 
   const [dayInfo, setDayInfo] = useState(_searchDateWhichEdit(daysFood, editDayData));
 
   let indexDayWhichWeWork = daysFood.findIndex((element) => element.date === dayInfo.date);
 
-  // useEffect(() => {
-  //   waiting response from MongoDB and set it in state
-  // }, []);
-
   useEffect(() => {
     setDayInfo(_searchDateWhichEdit(daysFood, editDayData));
-    localStorage.setItem('foodDays', daysFood);
   }, [daysFood, editDayData]);
 
   useEffect(() => {

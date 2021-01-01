@@ -33,8 +33,7 @@ const eighteenDay = {
   ],
 };
 
-const stateFromLocalStoorage = localStorage.getItem('foodDays');
-const initialStateArray = stateFromLocalStoorage || [eighteenDay];
+const initialStateArray = [eighteenDay];
 
 export const foodSlice = createSlice({
   name: 'FOOD_DAY_ARRAY',
