@@ -23,12 +23,21 @@ const eighteenDay = {
   coffeCup: 2,
   eats: [
     {
-      time: 'first',
-      food: 'макарошки с котлеткой',
+      time: '08:00',
+      food: 'delicious breakfast',
     },
     {
-      time: 'second...',
-      food: 'творог',
+      time: '12:00',
+      food:
+        'lunch. It was so taste and i have many energy for my life and my body have some profit',
+    },
+    {
+      time: '16:00',
+      food: 'light snacks',
+    },
+    {
+      time: '20:00',
+      food: 'delicious diner(or not) with not hard things. Vegetable',
     },
   ],
 };
