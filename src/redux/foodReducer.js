@@ -1,5 +1,5 @@
 const { createSlice } = require('@reduxjs/toolkit');
-const fake_day = {
+export const fake_day = {
   date: '',
   weight: 0,
   water: 0,
